@@ -1,4 +1,7 @@
 ﻿@page
+@using Azure
+@using Azure.Data.Tables
+@using IBAS_kantine.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -30,29 +33,45 @@
         <th>Varm ret</th>
         <th>Kold ret</th>
     </tr>
-    <tr>
-        <td>Man</td>
-        <td>Kylling og pasta</td>
-        <td>Smørrebrød</td>
-    </tr>
-    <tr>
-        <td>Tirs</td>
-        <td>Græskarsuppe</td>
-        <td>Pastasalat</td>
-    </tr>
-    <tr>
-        <td>Ons</td>
-        <td>Lasagne</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Tors</td>
-        <td>Panang curry</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Fre</td>
-        <td></td>
-        <td></td>
-    </tr>
+    @foreach (var item in Model.MenuItems)
+    {
+        <tr>
+            <td>@item.RowKey</td>
+            <td>@item.VarmRet</td>
+            <td>@item.KoldRet</td>
+        </tr>
+    }
 </table>
+
+@* <table> Næste uge: *@
+@*     <tr> *@
+@*         <th>Dag</th> *@
+@*         <th>Varm ret</th> *@
+@*         <th>Kold ret</th> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <td>Man</td> *@
+@*         <td>Kylling og pasta</td> *@
+@*         <td>Smørrebrød</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <td>Tirs</td> *@
+@*         <td>Græskarsuppe</td> *@
+@*         <td>Pastasalat</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <td>Ons</td> *@
+@*         <td>Lasagne</td> *@
+@*         <td></td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <td>Tors</td> *@
+@*         <td></td> *@
+@*         <td></td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <td>Fre</td> *@
+@*         <td></td> *@
+@*         <td></td> *@
+@*     </tr> *@
+@* </table> *@
