@@ -9,8 +9,8 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     public List<MenuItem> MenuItems = new List<MenuItem>();
-
-    public IndexModel(ILogger<IndexModel> logger)
+    
+    public IndexModel(ILogger<IndexModel> logger) // Constructor
     {
         _logger = logger;
     }
@@ -31,7 +31,7 @@ public class IndexModel : PageModel
             {
                 PartitionKey = entity.PartitionKey,
                 RowKey = entity.RowKey,
-                KoldRet = entity.GetString("KoldRet"),
+                KoldRet = entity.GetString("KoldRet"), // searching the TableEntity 'dictionary'
                 VarmRet = entity.GetString("VarmRet")
             };
             MenuItems.Add(menuItem);
